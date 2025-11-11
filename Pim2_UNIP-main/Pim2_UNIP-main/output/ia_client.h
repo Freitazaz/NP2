@@ -1,0 +1,15 @@
+#ifndef IA_CLIENT_H
+#define IA_CLIENT_H
+
+#include <stdio.h>   // garante definição de size_t
+#include <stddef.h>  // tamanho para size_t, segurança extra
+
+typedef struct {
+    char base_url[256];
+    int timeout;
+} IA_Config;
+
+void ia_init(IA_Config *cfg, const char *url, int timeout);
+int ia_search(IA_Config *cfg, const char *query, int limit, char *out, size_t out_size);
+
+#endif
